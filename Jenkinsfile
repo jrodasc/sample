@@ -22,5 +22,15 @@ pipeline {
         sh 'npm test'
       }
     }
+    stage('Approve') {
+      steps {
+        input(message: '¿Se aprueba?', submitter: 'dev2')
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Succesful'
+      }
+    }
   }
 }
