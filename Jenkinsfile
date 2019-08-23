@@ -17,14 +17,15 @@ pipeline {
         sh 'npm run build'
       }
     }
-    stage('Tes') {
+    stage('Test') {
       steps {
         sh 'npm test'
+        emailext(subject: 'Aprobar', body: 'Por favor aprueba', attachLog: true)
       }
     }
     stage('Approve') {
       steps {
-        input(message: '¿Se aprueba?', submitter: 'dev2')
+        input(message: 'Â¿Se aprueba?', submitter: 'dev2')
       }
     }
     stage('Deploy') {
