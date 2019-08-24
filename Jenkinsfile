@@ -33,7 +33,7 @@ pipeline {
     }
     stage('Deploy to development') {
       when {
-         branch 'development' 
+         branch 'develoment' 
       }
       steps {
         echo 'Succesful'
